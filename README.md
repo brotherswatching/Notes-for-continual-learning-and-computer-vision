@@ -25,7 +25,7 @@ ACnnL: Analytic convolutional neural network learning
 * 只有一个损失函数-最小均方差（mse）
 * 比起梯度迭代的方法，缺少灵活性
 * 欠拟合的风险
-* 
+
 现在的解决思路：利用预训练模型——冻结**backbone**,只训练头部，实验证明也可以产生好的效果
 
 ## 计算机视觉
