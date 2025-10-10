@@ -1,5 +1,11 @@
 # Notes-for-analytic-continual-learning-and-computer-vision
 这篇仓库是对我对于修过的分析持续学习课程与计算机视觉课程的简要回顾与总结，水平有限，谬误之处敬请指正。
+
+## 目录
+1. [分析持续学习](#分析持续学习)
+    1. [分析学习](#分析学习)
+    2. [持续学习](#持续学习)
+2. [计算机视觉](#计算机视觉)
 ## 分析持续学习
 ### 分析学习
 
@@ -12,7 +18,11 @@
 
 关键在于使用**伪逆**
 
-推导部分coming soon
+推导部分
+
+![](/analytic-learning/how-1.jpg "")
+
+![](/analytic-learning/how-2.jpg "")
 
 3.例子
 
@@ -23,7 +33,16 @@ ACnnL: Analytic convolutional neural network learning
 4.递归分析学习
 
 将一次进行的最小二乘法分成几块线性进行计算。这个性质不会改变权重，也被称为**权重的不变性**
-示意图coming soon（p113）
+
+示意图和推导如下
+
+![](/analytic-learning/BRMP-1.jpg "")
+
+![](/analytic-learning/BRMP-2.jpg "")
+
+![](/analytic-learning/BRMP-3.jpg "")
+
+![](/analytic-learning/BRMP-4.jpg "")
 
 5.分析学习面临的挑战
 
