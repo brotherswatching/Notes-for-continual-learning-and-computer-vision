@@ -5,7 +5,7 @@
 1. [分析持续学习](#分析持续学习)
     1. [分析学习](#分析学习)
     2. [持续学习](#持续学习)
-    3. [分析持续学习](#分析持续学习）
+    3. [分析学习+持续学习](#分析学习+持续学习)
 2. [计算机视觉](#计算机视觉)
 
 ## 分析持续学习
@@ -106,7 +106,7 @@ ACnnL: Analytic convolutional neural network learning
 * 倾向近况：模型的预测总会倾向新任务，种类越旧，遗忘越强。
 * 隐私问题：如果保留之前任务的数据的例子进行训练以缓解遗忘，则会造成隐私的泄露。
 
-### 分析持续学习
+### 分析学习+持续学习
 
 通过之前分析学习的铺垫，我们知道了分析学习的两大特性，**一个epoch完成训练**还有**权重不变性**。
 
@@ -130,6 +130,8 @@ H. Zhuang, et. al. , ACIL: Analytic Class-Incremental Learning with Absolute Mem
 
 数学推导如下：
 ![](/analytic-continual-learning/ACIL-4.jpg "")
+![](/analytic-continual-learning/ACIL-5.jpg "")
+![](/analytic-continual-learning/ACIL-6.jpg "")
    
 
 
