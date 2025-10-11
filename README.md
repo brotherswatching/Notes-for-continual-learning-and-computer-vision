@@ -5,7 +5,9 @@
 1. [分析持续学习](#分析持续学习)
     1. [分析学习](#分析学习)
     2. [持续学习](#持续学习)
+    3. [分析持续学习](#分析持续学习）
 2. [计算机视觉](#计算机视觉)
+
 ## 分析持续学习
 ### 分析学习
 
@@ -91,7 +93,7 @@ ACnnL: Analytic convolutional neural network learning
    3. 特征重播。之前数据的浓缩信息。
 3. 基于结构：为每个任务分配一个子网络。（或模型的不同部分来学不同任务，PackNet）
 4. 基于优化：优化模型
-   1. 让各任务的方向的互相干扰减少（投射梯度，使其互不重叠Adam-NSCL）
+   1. 让各任务的方向的互相干扰减少（投射梯度，使其互不重叠，Adam-NSCL）
    2. 获得不同任务的总体知识（Meta Learning，学习去学习，通过相似任务学习共用知识，再在下游任务做微小更新）
 5. 杂合方法：结合上述的不同方法。
    
@@ -103,6 +105,39 @@ ACnnL: Analytic convolutional neural network learning
 * 语义偏移：在潜空间里的旧任务的embedding在学习完新任务后会进行偏移
 * 倾向近况：模型的预测总会倾向新任务，种类越旧，遗忘越强。
 * 隐私问题：如果保留之前任务的数据的例子进行训练以缓解遗忘，则会造成隐私的泄露。
+
+### 分析持续学习
+
+通过之前分析学习的铺垫，我们知道了分析学习的两大特性，**一个epoch完成训练**还有**权重不变性**。
+
+能否将这两个特性用在CIL问题中呢？
+
+我们知道，效果最好的当然是在获得新知识的时候把所有新旧所有数据都输入进去进行重新训练，但是代价太过高昂让我们不得不放弃。但是**权重不变性**正好解决了这点--分段迭代的训练和整体的训练最后的权重值是**一样的**。
+
+![](/analytic-continual-learning/ACIL-1.jpg "")
+H. Zhuang, et. al. , ACIL: Analytic Class-Incremental Learning with Absolute Memorization and Privacy Protection, NeurIPS, 2022.
+
+分为两个部分
+1. 基础训练部分，训练特征提取器和初始分析分类器
+    1. 训练cnn基座（特征提取器）
+    2. 用最小二乘法训练初始的分析分类器
+![](/analytic-continual-learning/ACIL-2.jpg "")
+2. 类增量学习部分，一阶段一阶段的训练分析分类器
+    1. 固定基座，训练分类器
+    2. 在自相关矩阵中储存信息
+    3. 更新线性分类器的权重
+![](/analytic-continual-learning/ACIL-3.jpg "")
+
+数学推导如下：
+![](/analytic-continual-learning/ACIL-4.jpg "")
+   
+
+
+
+
+
+
+
 
 
 ## 计算机视觉
